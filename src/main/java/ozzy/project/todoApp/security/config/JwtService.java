@@ -1,4 +1,4 @@
-package ozzy.project.demo.config;
+package ozzy.project.todoApp.security.config;
 
 import java.security.Key;
 import java.util.Date;

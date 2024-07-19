@@ -1,4 +1,4 @@
-package ozzy.project.demo;
+package ozzy.project.todoApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

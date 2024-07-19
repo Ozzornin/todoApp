@@ -1,4 +1,4 @@
-package ozzy.project.demo.auth;
+package ozzy.project.todoApp.security.auth;
 
 import org.aspectj.internal.lang.annotation.ajcPrivileged;
 

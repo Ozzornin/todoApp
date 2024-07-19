@@ -1,4 +1,4 @@
-package ozzy.project.demo.auth;
+package ozzy.project.todoApp.security.auth;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +24,7 @@ public class AuthenticationController {
 
 	@PostMapping("/authenticate")
 	public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+		System.out.println(request.toString());
 		return ResponseEntity.ok(authenticationService.authenticate(request));
 	}
 
