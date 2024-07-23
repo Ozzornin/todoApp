@@ -38,6 +38,14 @@ public class UserService {
         logger.info("Searching for current user");
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByEmail(email);
+    }
 
+    public void deleteTask(Integer id) {
+        User user = getCurrent().orElseThrow(() -> new RuntimeException("User not found"));
+        Task task = user.getTasks().stream().filter(t -> t.getId().equals(id)).findFirst()
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+        taskDAO.delete(task.getId());
+        logger.info(String.format("Deleting task %s from user %s", task.getTitle(), user.getEmail()));
+        userRepository.save(user);
     }
 }

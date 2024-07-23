@@ -3,6 +3,7 @@ package ozzy.project.todoApp.security.auth;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties.Jwt;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,8 @@ public class AuthenticationService {
 		authenticationManager
 				.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
-		var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+		var user = userRepository.findByEmail(request.getEmail())
+				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 		String jwtToken = jwtService.generateToken(user);
 		return AuthenticationResponse.builder().token(jwtToken).build();
 
