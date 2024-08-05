@@ -1,4 +1,4 @@
-package ozzy.project.todoApp.db.entity.user;
+package ozzy.project.todoApp.entity.user;
 
 import java.util.Optional;
 
@@ -8,16 +8,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
-import ozzy.project.todoApp.db.entity.task.Task;
-import ozzy.project.todoApp.db.entity.task.TaskDAOImpl;
+import lombok.AllArgsConstructor;
+import ozzy.project.todoApp.entity.task.Task;
+import ozzy.project.todoApp.entity.task.TaskDAOImpl;
 
 @Service
+@AllArgsConstructor
 public class UserService {
-
-    public UserService(UserRepository userRepository, TaskDAOImpl taskDAO) {
-        this.userRepository = userRepository;
-        this.taskDAO = taskDAO;
-    }
 
     private final Logger logger = LoggerFactory.getLogger(UserService.class);
 

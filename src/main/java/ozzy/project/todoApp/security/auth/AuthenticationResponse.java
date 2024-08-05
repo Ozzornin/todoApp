@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ozzy.project.todoApp.dto.UserDTO;
 
 @Data
 @Builder
@@ -12,5 +13,4 @@ import lombok.NoArgsConstructor;
 public class AuthenticationResponse {
 
 	private String token;
-
 }

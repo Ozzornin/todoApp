@@ -1,4 +1,4 @@
-package ozzy.project.todoApp.db.entity.user;
+package ozzy.project.todoApp.entity.user;
 
 import java.util.Optional;
 

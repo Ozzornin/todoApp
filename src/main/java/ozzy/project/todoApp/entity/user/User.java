@@ -1,4 +1,4 @@
-package ozzy.project.todoApp.db.entity.user;
+package ozzy.project.todoApp.entity.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,7 +23,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ozzy.project.todoApp.db.entity.task.Task;
+import ozzy.project.todoApp.entity.task.Task;
 
 @Data // Lombok annotation to generate getters and setters
 @Builder // Lombok annotation to generate builder pattern

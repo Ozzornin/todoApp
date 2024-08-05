@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import ozzy.project.todoApp.db.entity.user.UserRepository;
+import ozzy.project.todoApp.entity.user.UserRepository;
 
 @Configuration
 public class ApplicationConfig {

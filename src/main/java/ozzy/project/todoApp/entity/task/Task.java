@@ -1,4 +1,4 @@
-package ozzy.project.todoApp.db.entity.task;
+package ozzy.project.todoApp.entity.task;
 
 import java.util.Date;
 
@@ -20,7 +20,7 @@ import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ozzy.project.todoApp.db.entity.user.User;
+import ozzy.project.todoApp.entity.user.User;
 
 @Entity
 @Table(name = "task")

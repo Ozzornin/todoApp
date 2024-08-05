@@ -1,15 +1,21 @@
-package ozzy.project.todoApp.db.entity.task;
+package ozzy.project.todoApp.entity.task;
 
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import ozzy.project.todoApp.db.entity.user.User;
-import ozzy.project.todoApp.db.entity.user.UserRepository;
+import lombok.AllArgsConstructor;
+import ozzy.project.todoApp.dto.TaskDTO;
+import ozzy.project.todoApp.entity.user.User;
+import ozzy.project.todoApp.entity.user.UserRepository;
 
 @Repository
+@AllArgsConstructor
 public class TaskDAOImpl implements TaskDAO {
 
     @PersistenceContext
@@ -17,10 +23,7 @@ public class TaskDAOImpl implements TaskDAO {
 
     private final UserRepository userRepository;
 
-    public TaskDAOImpl(EntityManager entityManager, UserRepository userRepository) {
-        this.entityManager = entityManager;
-        this.userRepository = userRepository;
-    }
+    private final ModelMapper mapper;
 
     @Override
     @Transactional
@@ -37,8 +40,13 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     @Override
-    public void update(Task task) {
-        entityManager.merge(task);
+    @Transactional
+    public void update(TaskDTO task) {
+        Task oldTask = entityManager.find(Task.class, task.getId());
+        if (oldTask != null) {
+            mapper.map(task, oldTask);
+        }
+        entityManager.merge(oldTask);
     }
 
     @Override

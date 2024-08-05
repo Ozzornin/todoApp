@@ -8,9 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import ozzy.project.todoApp.db.entity.user.Role;
-import ozzy.project.todoApp.db.entity.user.User;
-import ozzy.project.todoApp.db.entity.user.UserRepository;
+import ozzy.project.todoApp.entity.user.Role;
+import ozzy.project.todoApp.entity.user.User;
+import ozzy.project.todoApp.entity.user.UserRepository;
 import ozzy.project.todoApp.security.config.JwtService;
 
 @Service
